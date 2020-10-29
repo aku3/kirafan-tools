@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,
   initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes">
-  <title>きらファンツール</title>
+  <title>KiraFan Tool</title>
   <!--css動的切り替え 参考:https://www.sejuku.net/blog/55437 -->
   <link rel="stylesheet" type="text/css" href="./css/style_main.css" id="main file"></link>
   <link rel="stylesheet" type="text/css" href="./css/style_white.css" id="white" disabled="false"></link>  
@@ -23,12 +23,12 @@
         <!--今のところ空白-->
      </header> 
      <main> 
-         <h1>きらファンツール</h1><br>
+         <h1>KiraFan Tool</h1><br>
 
          <!--すっきりしない…下のoninputのように一括にしたい-->
          <form  id="theme">
-            <input type="radio" name="white" id="theme0" value="white" onclick="themechanger('white');" checked/>ノーマル
-            <input type="radio" name="dark" id="theme1" value="dark" onclick="themechanger('dark');"/>ダーク
+            <input type="radio" name="white" id="theme0" value="white" onclick="themechanger('white');" checked/>Normal
+            <input type="radio" name="dark" id="theme1" value="dark" onclick="themechanger('dark');"/>Dark
          </form>
         
          <script>
@@ -48,8 +48,8 @@
          </script>
          <!--入力欄ここから-->
          <select id="SwitchTools" onsubmit="return" oninput="ToolSwitcher(document.getElementById('SwitchTools').value);" >
-            <option value="CreaCalc">クリエ獲得量計算機</option>
-            <option value="StmCalc">スタミナ計算機</option>
+            <option value="CreaCalc">Crea Gain Calculator</option>
+            <option value="StmCalc">Stamina Calculator</option>
          </select>   <br> 
         
 
@@ -63,16 +63,16 @@
          <form onsubmit="return" id="result" 
          oninput="result.value=CreaCalc(Number(stm_i.value),Number(awkn.value),Number(N_awkn.value),Number(poss5.value),
                                       Number(poss4.value),Number(memb5.value),Number(memb4.value),document.getElementById('stmFtype').value);">
-         <h2>クリエ獲得量計算機</h2>  <br> 
+         <h2>Crea Gain Calculator</h2>  <br> 
             
             <!--入力欄ここから-->
-              クエストタイプ<select id="stmFtype">
-              <option value="stamina">スタミナ</option>
-              <option value="Gkey">金鍵</option>
-              <option value="Skey">銀鍵</option>
-              <option value="Cquest">チャレクエ</option>
-              <option value="tickets">チケット</option>
-              <option value="bonds">獲得仲良し度</option>
+              Quest type<select id="stmFtype">
+              <option value="stamina">Stamina</option>
+              <option value="Gkey">Gold Key</option>
+              <option value="Skey">Silver Key</option>
+              <option value="Cquest">Challenge Quest</option>
+              <option value="tickets">Ticket</option>
+              <option value="bonds">Bond Gain</option>
             </select>   <br>
 
 
@@ -100,10 +100,10 @@
             </script>  -->
 
             <div id="input_stm">
-                消費スタミナ<input name="stamina" id="stm_i" type="number" min="0" step="1"><br>
+                Stamina cost<input name="stamina" id="stm_i" type="number" min="0" step="1"><br>
             </div>
             <div id="input_bonds">
-                獲得仲良し度<input name="bounds" id="bonds_i" type="number" min="0" step="1"><br>
+                Bond Gain<input name="bounds" id="bonds_i" type="number" min="0" step="1"><br>
             </div>
             <script>$("#input_bonds").hide(0)</script>
 
@@ -131,31 +131,31 @@
              </script>
             
              <!--入力欄続き-->
-             星5所持数 
+             5* owned 
              <input name="possesion5" id="poss5" type="number" min="0" step="1"><br>
-             星4所持数
+             4* owned
              <input name="possesion4" id="poss4" type="number" min="0" step="1"><br>
-             編成に入れた星5の数
+             5* in the party
              <input name="member5" id="memb5" type="number" min="0" max="5" step="1"> <br>
-             編成に入れた星4の数
+             4* in the party
              <input name="member4" id="memb4" type="number" min="0" max="5" step="1"><br>
-             編成の総覚醒数
+             Total awakening stars in the party
              <input name="awakened" id="awkn" type="number" min="0" max="25" step="1"><br>
-             編成に入れた星5のフル覚醒人数
+             Fully awakened 5* in the party
              <input name="NumOfAwkn" id="N_awkn" type="number" min="0" max="5" step="1"><br>
            
 
              <!--計算結果-->
-             <br>クリエ計算結果:<output id="result">0</output>
+             <br>Crea calculation results:<output id="result">0</output>
 
              <small>
-                 <br><br>全て単作品の場合として入力してください
-                 <br>クリエ獲得量は仲良し度によって算出されています
-                 <br>もし消費スタミナ数による計算がうまくいかない場合、
-                 <br>獲得仲良し度で計算してください　<wbr>例:負けイベントのアルシーヴなど
-                 <br>(純粋に計算機のバグの可能性もあります)
+                 <br><br>Please enter the values of a single series.
+                 <br>The amount of Crea earned is calculated based on the amount of Bond points.
+                 <br>If the calculation based on the stamina cost is incorrect (Example: Unwinnable Archive's story fight),
+                 <br>calculate it based on the amount of Bond earned.
+                 <br>(It could be a bug in the calculator)
                  <br>
-                 <br>この計算機は<a href="https://twitter.com/UCieloSereno/status/1233659580309233666">この</a>ツイートを元にして作成しました
+                 <br>This calculator was created based on <a href="https://twitter.com/UCieloSereno/status/1233659580309233666">this</a> tweet.
              </small>
          </form>
 
